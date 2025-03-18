@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import RoomSection from '@/components/RoomSection';
+import ChatSection from '@/components/ChatSection'; // New import
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
@@ -23,7 +23,7 @@ export default function Home() {
       <main className="bg-slate-900 min-h-screen">
         <HeroSection />
         <FeaturesSection />
-        <RoomSection />
+        <ChatSection /> {/* Replace RoomSection with ChatSection */}
         <TestimonialsSection />
         <CtaSection />
       </main>
