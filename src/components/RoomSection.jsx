@@ -1,5 +1,5 @@
 // components/RoomSection.jsx
-import { useState } from 'react';
+{/*import { useState } from 'react';
 import { Clock, Copy } from 'lucide-react';
 
 const RoomSection = () => {
@@ -43,7 +43,6 @@ const RoomSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Create Room */}
             <div className="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-700">
               <h3 className="text-2xl font-bold text-white mb-4">Create a Room</h3>
               <p className="text-slate-300 mb-6">
@@ -80,7 +79,6 @@ const RoomSection = () => {
               )}
             </div>
 
-            {/* Join Room */}
             <div className="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-700">
               <h3 className="text-2xl font-bold text-white mb-4">Join a Room</h3>
               <p className="text-slate-300 mb-6">
@@ -119,4 +117,4 @@ const RoomSection = () => {
   );
 };
 
-export default RoomSection;
+export default RoomSection;*/}

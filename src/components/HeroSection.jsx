@@ -1,5 +1,6 @@
 // components/HeroSection.jsx
 import { MessageSquare, Shield, Zap, Clock } from 'lucide-react';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -14,9 +15,11 @@ const HeroSection = () => {
             Share your thoughts without sharing your identity.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors shadow-lg shadow-purple-500/20">
-              Get Started
-            </button>
+            <Link href="/chat">
+              <button className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors shadow-lg shadow-purple-500/20">
+                Start a Chat
+              </button>
+            </Link>
             <button className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-md transition-colors shadow-lg">
               Learn More
             </button>
