@@ -1,16 +1,14 @@
-// pages/index.js
 import Head from 'next/head';
-import Navbar from '@/components/Navbar';
+import Layout from '@/components/Layout';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import ChatSection from '@/components/ChatSection'; // New import
+
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CtaSection from '@/components/CtaSection';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Shadow Talk - Secure Private Messaging</title>
         <meta name="description" content="Secure, private messaging platform where conversations happen in the shadows." />
@@ -18,17 +16,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Navbar />
-      
       <main className="bg-slate-900 min-h-screen">
         <HeroSection />
         <FeaturesSection />
-        <ChatSection /> {/* Replace RoomSection with ChatSection */}
+       
         <TestimonialsSection />
         <CtaSection />
       </main>
-      
-      <Footer />
-    </>
+    </Layout>
   );
 }
