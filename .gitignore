@@ -3,7 +3,23 @@ node_modules/
 frontend/node_modules/
 backend/node_modules/
 
-# Optional ignores
+# Ignore environment files
 *.env
+*.env.local
+*.env.*.local
+
+# Ignore build folders
 dist/
 build/
+
+# Ignore log files
+*.log
+logs/
+
+# Ignore system files (Optional but good practice)
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific folders (Optional, depending on the team)
+.vscode/
+.idea/
