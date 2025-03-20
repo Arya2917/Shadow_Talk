@@ -5,12 +5,27 @@ import React, { useEffect, useRef } from 'react';
 
 function MessageList({ messages, currentUserId }) {
   const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
+  const prevMessagesLength = useRef(0);
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll to bottom only when new messages arrive (not on every render)
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    // Only scroll if new messages have been added
+    if (messages.length > prevMessagesLength.current) {
+      if (messagesEndRef.current) {
+        // Check if user was already at the bottom before scrolling
+        const container = messagesContainerRef.current;
+        const isAtBottom = container && 
+          container.scrollHeight - container.clientHeight <= container.scrollTop + 50;
+        
+        // Only auto-scroll if user was already at the bottom or this is the first load
+        if (isAtBottom || prevMessagesLength.current === 0) {
+          messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+      }
     }
+    
+    prevMessagesLength.current = messages.length;
   }, [messages]);
 
   // Format timestamp
@@ -20,7 +35,11 @@ function MessageList({ messages, currentUserId }) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900">
+    <div 
+      ref={messagesContainerRef}
+      className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900"
+      onClick={(e) => e.stopPropagation()} // Prevent click propagation
+    >
       {messages.length === 0 ? (
         <div className="text-center text-slate-500 py-8">No messages yet</div>
       ) : (
