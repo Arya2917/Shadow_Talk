@@ -38,7 +38,7 @@ export default function Blog() {
               date="March 15, 2025"
               excerpt="Dive into the technical details of our encryption protocols and why they matter for your privacy."
               category="Security"
-              image="/api/placeholder/400/320"
+              image="/encryption.jpg"
             />
             <BlogPost
               title="The Future of Private Communication"
