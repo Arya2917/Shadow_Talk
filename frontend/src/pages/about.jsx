@@ -1,6 +1,7 @@
 // pages/about.js
 import Head from 'next/head';
 import Layout from '@/components/Layout';
+import Image from 'next/image';
 import { Shield, Eye, Lock, Users } from 'lucide-react';
 
 export default function About() {
@@ -10,7 +11,7 @@ export default function About() {
         <title>About - Shadow Talk</title>
         <meta name="description" content="Learn about Shadow Talk's mission, team, and commitment to privacy." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" />
       </Head>
       
       <section className="pt-28 pb-16 bg-gradient-to-b from-slate-900 to-slate-800">
@@ -42,8 +43,14 @@ export default function About() {
               </p>
             </div>
             <div className="bg-slate-800 p-4 rounded-lg shadow-lg border border-slate-700">
-              <div className="w-full h-64 bg-slate-700 rounded-md flex items-center justify-center">
-                <div className="text-slate-400">Company Timeline</div>
+              <div className="w-full h-64 bg-slate-700 rounded-md overflow-hidden">
+                <Image
+                  src="/shadow_chat.jpg"
+                  alt="Company Timeline"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -81,20 +88,20 @@ export default function About() {
                 name="Arya Thanekar"
                 role="Founder & CEO"
                 bio="Former security researcher with a passion for digital rights and privacy."
+                image="/Arya.jpg"
               />
               <TeamMember 
                 name="Ankit Bugade"
                 role="Co-Founder & CTO"
                 bio="Cryptography expert with 15 years of experience in secure communications."
+                image="/ankit.png"
               />
               <TeamMember 
                 name="Pritam Jatkar"
                 role="Co-Founder & Senior UX Designer"
                 bio="User experience specialist focused on making privacy-first products accessible to everyone."
+                image="/pritam.png"
               />
-            
-             
-            
             </div>
           </div>
         </div>
@@ -113,11 +120,17 @@ const ValueCard = ({ icon, title, description }) => {
   );
 };
 
-const TeamMember = ({ name, role, bio }) => {
+const TeamMember = ({ name, role, bio, image }) => {
   return (
     <div className="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 hover:border-purple-500/50 transition-all">
-      <div className="w-24 h-24 bg-slate-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-        <div className="text-slate-400">Photo</div>
+      <div className="w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden">
+        <Image
+          src={image}
+          alt={`Photo of ${name}`}
+          width={96}
+          height={96}
+          className="w-full h-full object-cover"
+        />
       </div>
       <h3 className="text-xl font-semibold text-white mb-1 text-center">{name}</h3>
       <p className="text-purple-500 mb-4 text-center">{role}</p>
