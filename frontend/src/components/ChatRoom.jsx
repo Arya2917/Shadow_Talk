@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 function ChatRoom({ roomId, username, onLeaveRoom }) {
   const {
     connected,
+    
     participants,
     groupMessages,
     privateMessages,
