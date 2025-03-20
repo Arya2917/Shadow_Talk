@@ -1,45 +1,47 @@
-// components/ParticipantList.jsx
-"use client";
-
+// components/ui/ParticipantList.jsx
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { MessageSquare, User } from 'lucide-react';
 
 function ParticipantList({ participants, currentUser, onSelectParticipant, selectedPeer }) {
+  const participantArray = Object.entries(participants).map(([id, data]) => ({
+    id,
+    username: data.username,
+  }));
+
   return (
-    <div className="border-r border-slate-700 p-4 w-64 bg-slate-800 overflow-y-auto">
-      <h3 className="font-semibold mb-4 text-white flex items-center">
-        <User size={18} className="mr-2 text-purple-500" /> Participants
-      </h3>
-      <ul className="space-y-2">
-        {Object.entries(participants).map(([id, participant]) => (
-          <li 
-            key={id}
-            className={`p-2 rounded-md cursor-pointer hover:bg-slate-700 flex justify-between items-center ${
-              selectedPeer === id ? 'bg-slate-700 border-l-2 border-purple-500' : ''
-            }`}
-            onClick={() => participant.username !== currentUser && onSelectParticipant(id)}
-          >
-            <div className="truncate text-slate-300">
-              {participant.username}
-              {participant.username === currentUser && ' (You)'}
-            </div>
-            {participant.username !== currentUser && (
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="h-7 text-xs text-slate-300 hover:bg-slate-600 hover:text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSelectParticipant(id);
-                }}
-              >
-                <MessageSquare size={14} className="mr-1" /> Chat
-              </Button>
-            )}
-          </li>
-        ))}
-      </ul>
+    <div className="h-full overflow-y-auto bg-slate-800">
+      <div className="p-3 border-b border-slate-700">
+        <h3 className="text-sm font-semibold text-slate-300">Participants ({participantArray.length})</h3>
+      </div>
+      <div className="p-2">
+        {participantArray.length === 0 ? (
+          <div className="text-center text-slate-500 py-4">No participants</div>
+        ) : (
+          <ul className="space-y-1">
+            {participantArray.map((participant) => (
+              <li key={participant.id}>
+                <button
+                  onClick={() => participant.username !== currentUser && onSelectParticipant(participant.id)}
+                  className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
+                    participant.username === currentUser
+                      ? 'text-purple-400 bg-slate-700/50 cursor-default'
+                      : selectedPeer === participant.id
+                      ? 'bg-slate-700 text-white'
+                      : 'text-slate-300 hover:bg-slate-700/70 hover:text-white'
+                  }`}
+                  disabled={participant.username === currentUser}
+                >
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                    <span className="truncate">
+                      {participant.username} {participant.username === currentUser && '(You)'}
+                    </span>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
