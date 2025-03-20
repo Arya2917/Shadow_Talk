@@ -45,35 +45,35 @@ export default function Blog() {
               date="March 10, 2025"
               excerpt="Our vision for creating a digital world where privacy is the default, not just an option."
               category="Privacy"
-              image="/api/placeholder/400/320"
+              image="/communication.jpg"
             />
             <BlogPost
               title="5 Ways to Enhance Your Digital Privacy Today"
               date="March 5, 2025"
               excerpt="Simple steps you can take right now to improve your privacy online, even beyond using Shadow Talk."
               category="Tips"
-              image="/api/placeholder/400/320"
+              image="/digital.jpg"
             />
             <BlogPost
               title="Why We Don't Store Your Messages"
               date="February 28, 2025"
               excerpt="A deep dive into our no-storage policy and how it protects you from data breaches and surveillance."
               category="Security"
-              image="/api/placeholder/400/320"
+              image="/message.jpg"
             />
             <BlogPost
               title="The Psychology of Anonymous Communication"
               date="February 22, 2025"
               excerpt="Research shows that anonymity can lead to more honest and meaningful conversations. Here's why."
               category="Research"
-              image="/api/placeholder/400/320"
+              image="/hiding.jpg"
             />
             <BlogPost
               title="Introducing Self-Destructing Voice Messages"
               date="February 15, 2025"
               excerpt="Our newest feature allows you to send encrypted voice messages that disappear after being played."
               category="Product Update"
-              image="/api/placeholder/400/320"
+              image="/voice.jpg"
             />
           </div>
 
