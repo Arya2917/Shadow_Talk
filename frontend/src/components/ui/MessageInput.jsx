@@ -27,7 +27,7 @@ function MessageInput({ onSendMessage }) {
         className="flex-1 bg-slate-700 border-slate-600 text-white"
       />
       <Button type="submit" className="bg-purple-600 hover:bg-purple-700">
-        <Send size={18} className="mr-2" /> Send
+        <div className='flex justify-center align-middle'><Send size={18} className=" mt-0.5 mr-1" /> Send</div>
       </Button>
     </form>
   );
