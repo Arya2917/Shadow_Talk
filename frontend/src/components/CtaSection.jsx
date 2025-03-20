@@ -19,9 +19,11 @@ const CtaSection = () => {
                       Start a Chat Now
                     </button>
                   </Link>
-                  <button className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-md transition-colors shadow-lg">
-                    Learn More
-                  </button>
+                  <Link href="/learn-more">
+                    <button className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-md transition-colors shadow-lg">
+                      Learn More
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
