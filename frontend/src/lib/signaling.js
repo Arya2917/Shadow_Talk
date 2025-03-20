@@ -15,7 +15,7 @@ export class SignalingService {
     };
   }
 
-  connect(serverUrl = 'http://localhost:5000') {
+  connect(serverUrl = process.env.NEXT_PUBLIC_BACKEND_URL) {
     return new Promise((resolve, reject) => {
       try {
         this.socket = io(serverUrl);
