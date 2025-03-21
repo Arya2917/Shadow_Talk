@@ -94,7 +94,7 @@ export default function About() {
                 name="Ankit Bugade"
                 role="Co-Founder & CTO"
                 bio="Cryptography expert with 15 years of experience in secure communications."
-                image="/ankit.png"
+                image="/ankit.jpg"
               />
               <TeamMember 
                 name="Pritam Jatkar"
